@@ -1,0 +1,112 @@
+﻿@model TransactionsWebApp.Models.Transactions
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Transactions</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Transaction Id</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransactionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransactionDate)
+        </dd>
+
+        <dt>
+           <label>Transaction Type</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transactiontypes.transactiontype)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.amount)
+        </dd>
+
+        <dt>
+            <label>Client Origin Code</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clients.ClientCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.oldbalanceorg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.oldbalanceorg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.newbalanceorg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.newbalanceorg)
+        </dd>
+
+        <dt>
+            <label>Client Destination Code</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clients1.ClientCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.oldbalancedest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.oldbalancedest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.newbalancedest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.newbalancedest)
+        </dd>
+        @if (Model.isfraud == 1)
+        {
+            <dd>
+                REPORTED AS FRAUD
+            </dd>
+        }
+        @if (Request.IsAuthenticated && (User.IsInRole("3") || User.IsInRole("1")) && Model.isfraud!=1)
+        {
+            @Html.ActionLink("Report Fraud", "ReportFraud", new { id = Model.Id })
+        }
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")*@
+    @if (Request.IsAuthenticated && (User.IsInRole("4") || User.IsInRole("1")))
+    {
+        @Html.ActionLink("New Transaction", "CreateTransaction")
+    }
+</p>

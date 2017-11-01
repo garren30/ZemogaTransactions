@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "SearchtoReportFraud";
+}
+
+<h2>SearchtoReportFraud</h2>
+@using (Html.BeginForm("SearchtoReportFraud", "Transactions"))
+{
+    @Html.AntiForgeryToken()
+    <label>Transaction Code:</label>
+    <input type="text" name="TransactionCode" id="TransactionCode" class = "form-control" />
+    if (ViewBag.Message != null)
+    {
+        <label class = "text-danger" >@ViewBag.Message</label>
+    }
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Find" class="btn btn-default" />
+        </div>
+    </div>
+}

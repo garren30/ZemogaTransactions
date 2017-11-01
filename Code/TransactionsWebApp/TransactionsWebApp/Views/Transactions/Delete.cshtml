@@ -1,0 +1,128 @@
+﻿@model TransactionsWebApp.Models.Transactions
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Transactions</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TransactionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransactionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.oldbalanceorg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.oldbalanceorg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.newbalanceorg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.newbalanceorg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.oldbalancedest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.oldbalancedest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isfraud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isfraud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.frauddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.frauddate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.newbalancedest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.newbalancedest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clients.ClientCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clients.ClientCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clients1.ClientCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clients1.ClientCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transactiontypes.transactiontype)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transactiontypes.transactiontype)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Users.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Users.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Users1.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Users1.username)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

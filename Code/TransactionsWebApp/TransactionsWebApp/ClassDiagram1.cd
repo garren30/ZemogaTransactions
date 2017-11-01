@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="TransactionsWebApp.Controllers.HomeController">
+    <Position X="10" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAgAAAAAAAAEQAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransactionsWebApp.Controllers.TransactionsController">
+    <Position X="9.25" Y="6.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACATAAAAAAAAAAAAAAAEAAAAAAEAAAAAhAA=</HashCode>
+      <FileName>Controllers\TransactionsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransactionsWebApp.Controllers.UsersController">
+    <Position X="10" Y="2.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAgEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\UsersController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransactionsWebApp.Models.TransactionsBDEntities">
+    <Position X="6.25" Y="2.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AQCAACAAAAAAAACAACAAAAAAEgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ModelDB.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransactionsWebApp.Models.Clients">
+    <Position X="0.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AACCAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Clients.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransactionsWebApp.Models.Roles">
+    <Position X="3.75" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Roles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransactionsWebApp.Models.Transactions">
+    <Position X="0.5" Y="2.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>ACACACAAQEEAAACCACAAAEABAAAAiAgAAAAAEQAAAAE=</HashCode>
+      <FileName>Models\Transactions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransactionsWebApp.Models.Transactiontypes">
+    <Position X="6.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Transactiontypes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransactionsWebApp.Models.Users">
+    <Position X="3.75" Y="5.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAKCAQAAAAAAAAAAAAAAAAEAAiAEAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\Users.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransactionsWebApp.Models.TransactionData">
+    <Position X="3.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAQAAgAAAABAAAAAIAAA=</HashCode>
+      <FileName>Models\TransactionData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TransactionsBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Clients_dest" FromRole="Clients" ToRole="Transactions" />
+    <NavigationProperty Name="Transactions1" Relationship="Self.FK_Transactions_Clients_org" FromRole="Clients" ToRole="Transactions" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="transactiontype_id" Type="Int32" Nullable="false" />
+    <Property Name="amount" Type="Double" Nullable="false" />
+    <Property Name="clientorg_Id" Type="Int32" Nullable="false" />
+    <Property Name="oldbalanceorg" Type="Double" />
+    <Property Name="newbalanceorg" Type="Double" />
+    <Property Name="clientdest_Id" Type="Int32" Nullable="false" />
+    <Property Name="oldbalancedest" Type="Double" />
+    <Property Name="isfraud" Type="Int32" />
+    <Property Name="usercreation_id" Type="Int32" Nullable="false" />
+    <Property Name="usermarkfraud_id" Type="Int32" />
+    <Property Name="frauddate" Type="DateTime" Precision="3" />
+    <Property Name="newbalancedest" Type="Double" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK_Transactions_Clients_dest" FromRole="Transactions" ToRole="Clients" />
+    <NavigationProperty Name="Clients1" Relationship="Self.FK_Transactions_Clients_org" FromRole="Transactions" ToRole="Clients" />
+    <NavigationProperty Name="Transactiontypes" Relationship="Self.FK_Transactions_Transactiontypes" FromRole="Transactions" ToRole="Transactiontypes" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Transactions_User_Creation" FromRole="Transactions" ToRole="Users" />
+    <NavigationProperty Name="Users1" Relationship="Self.FK_Transactions_Users_Fraud" FromRole="Transactions" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Transactiontypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="transactiontype" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Transactiontypes" FromRole="Transactiontypes" ToRole="Transactions" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rol_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Roles" Relationship="Self.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_User_Creation" FromRole="Users" ToRole="Transactions" />
+    <NavigationProperty Name="Transactions1" Relationship="Self.FK_Transactions_Users_Fraud" FromRole="Users" ToRole="Transactions" />
+  </EntityType>
+  <Association Name="FK_Transactions_Clients_dest">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="clientdest_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Clients_org">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="clientorg_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="rol_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Transactiontypes">
+    <End Role="Transactiontypes" Type="Self.Transactiontypes" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transactiontypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="transactiontype_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_User_Creation">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="usercreation_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Users_Fraud">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="usermarkfraud_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TransactionsBDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clients" EntityType="Self.Clients" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" />
+    <EntitySet Name="Transactiontypes" EntityType="Self.Transactiontypes" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK_Transactions_Clients_dest" Association="Self.FK_Transactions_Clients_dest">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Clients_org" Association="Self.FK_Transactions_Clients_org">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Transactiontypes" Association="Self.FK_Transactions_Transactiontypes">
+      <End Role="Transactiontypes" EntitySet="Transactiontypes" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_User_Creation" Association="Self.FK_Transactions_User_Creation">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Users_Fraud" Association="Self.FK_Transactions_Users_Fraud">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <FunctionImport Name="GetTransactionData">
+      <Parameter Name="clientorgdcode" Mode="In" Type="String" />
+      <Parameter Name="clientdestcode" Mode="In" Type="String" />
+      <Parameter Name="amount" Mode="In" Type="Double" />
+      <Parameter Name="transactiontype_id" Mode="In" Type="Int32" />
+      <Parameter Name="usercreation_id" Mode="In" Type="Int32" />
+      <Parameter Name="Identity" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

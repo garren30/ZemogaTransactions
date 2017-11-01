@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b54be5d49bad4e57a35fd9ca961f1aec" Name="Diagram1">
+        <EntityTypeShape EntityType="TransactionsBDModel.Clients" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransactionsBDModel.Roles" Width="1.5" PointX="1.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransactionsBDModel.Transactions" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransactionsBDModel.Transactiontypes" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransactionsBDModel.Users" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="TransactionsBDModel.FK_Transactions_Clients_dest" ManuallyRouted="false" />
+        <AssociationConnector Association="TransactionsBDModel.FK_Transactions_Clients_org" ManuallyRouted="false" />
+        <AssociationConnector Association="TransactionsBDModel.FK_Users_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="TransactionsBDModel.FK_Transactions_Transactiontypes" ManuallyRouted="false" />
+        <AssociationConnector Association="TransactionsBDModel.FK_Transactions_User_Creation" ManuallyRouted="false" />
+        <AssociationConnector Association="TransactionsBDModel.FK_Transactions_Users_Fraud" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

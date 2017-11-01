@@ -1,0 +1,105 @@
+﻿@model IEnumerable<TransactionsWebApp.Models.Transactions>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TransactionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oldbalanceorg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.newbalanceorg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oldbalancedest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isfraud)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.frauddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.newbalancedest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clients.ClientCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clients1.ClientCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Transactiontypes.transactiontype)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Users.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Users1.username)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransactionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.oldbalanceorg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.newbalanceorg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.oldbalancedest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isfraud)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.frauddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.newbalancedest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clients.ClientCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clients1.ClientCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Transactiontypes.transactiontype)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Users.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Users1.username)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

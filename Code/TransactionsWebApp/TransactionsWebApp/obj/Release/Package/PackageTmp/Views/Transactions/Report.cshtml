@@ -1,0 +1,123 @@
+﻿@model IEnumerable<TransactionsWebApp.Models.Transactions>
+@{
+    ViewBag.Title = "Report";
+}
+
+<h2>Report</h2>
+@using (Html.BeginForm("Report", "Transactions"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            <label>Initial Date</label>
+            <input type="date" name="initdate" value="@ViewBag.datei"/>
+        </div> 
+        <div class="col-xs-12 col-md-4 col-md-offset-2">
+            <label>Final Date</label>
+            <input type="date" name="finaldate" value="@ViewBag.datef" />
+        </div> 
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <label>Destination Client Code</label>
+            <input type="text" name="CodeClient" value="@ViewBag.codec"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            <label><input type="checkbox" value="1" name="fraud" checked="@ViewBag.fraudcheck">  IsFraud</label>
+        </div>
+
+        <div class="col-xs-12 col-md-4 col-md-offset-3">
+            <input type="submit" value="Find" class="btn btn-default" />
+        </div>
+    </div>
+}
+@if (Model != null)
+{
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TransactionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.amount)
+        </th>
+        <th>
+            Origin Client Code
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oldbalanceorg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.newbalanceorg)
+        </th>
+        <th>
+            Destination Client Code
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oldbalancedest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isfraud)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.frauddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.newbalancedest)
+        </th>
+        
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Transactiontypes.transactiontype)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clients.ClientCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oldbalanceorg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.newbalanceorg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clients1.ClientCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oldbalancedest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isfraud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.frauddate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.newbalancedest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transactiontypes.transactiontype)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) 
+            </td>
+        </tr>
+    }
+
+</table>
+}

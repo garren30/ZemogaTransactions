@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TransactionsBDModelStoreContainer" CdmEntityContainer="TransactionsBDEntities">
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="TransactionsBDModel.Clients">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="TransactionsBDModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="TransactionsBDModel.Transactions">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="transactiontype_id" ColumnName="transactiontype_id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="clientorg_Id" ColumnName="clientorg_Id" />
+          <ScalarProperty Name="oldbalanceorg" ColumnName="oldbalanceorg" />
+          <ScalarProperty Name="newbalanceorg" ColumnName="newbalanceorg" />
+          <ScalarProperty Name="clientdest_Id" ColumnName="clientdest_Id" />
+          <ScalarProperty Name="oldbalancedest" ColumnName="oldbalancedest" />
+          <ScalarProperty Name="isfraud" ColumnName="isfraud" />
+          <ScalarProperty Name="usercreation_id" ColumnName="usercreation_id" />
+          <ScalarProperty Name="usermarkfraud_id" ColumnName="usermarkfraud_id" />
+          <ScalarProperty Name="frauddate" ColumnName="frauddate" />
+          <ScalarProperty Name="newbalancedest" ColumnName="newbalancedest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactiontypes">
+      <EntityTypeMapping TypeName="TransactionsBDModel.Transactiontypes">
+        <MappingFragment StoreEntitySet="Transactiontypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="transactiontype" ColumnName="transactiontype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="TransactionsBDModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="rol_id" ColumnName="rol_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetTransactionData" FunctionName="TransactionsBDModel.Store.GetTransactionData" />
+  </EntityContainerMapping>
+</Mapping>
