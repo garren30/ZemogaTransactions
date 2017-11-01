@@ -17,6 +17,21 @@ Project to upload  code and bd to Zemoga Test
 	2) Create a new db as TransactionsBD on sqlserver 2012 or higher with windows authentication
 	3) Restore the BackUpBD_Transactions.bak file in the db that you create on step 2, this file is in /ZemogaTransactions/Publishable/BackUpBD_Transactions.bak
 	4) Check that the tables roles and transactiontypes have information, otherwise delete the db an do steps 2 and 3
+	5) Move the Publishable for web and api to the folder that you are going to publish it(could be the same folder that are now) the folders you have to move are "/ZemogaTransactions/Publishable/Web" and  "/ZemogaTransactions/Publishable/Api"
+	6) Open the IIS Administrator (You should have already configurate your IIS)
+	7) right click on sites and selet add web site
+	8) Write the name to your website, select the folder where you put the Publishable, click on connect as and put the user's info that have permissons on the server, finally select the ip and port on which it will run.
+	9) After thar you go to the publishable folder and open de web.config file, in the tag <connectionStrings> be sure that you change the source for your server name or database instance and if you create the database with other name change it in catalog.
+
+	9) you have to repeat steps 7, 8 and 9 to configurate the api project (in the step 8 select the folder that you did not select before)
+	10) now you can go to the browser and put the ip and port to see that is now working
+
+	11) In the db you can find 4 user to see how it works:
+		user: Administrator, pass: Administrator
+		user: Superintendent, pass: Superintendent
+		user: Manager, pass: Manager
+		user: Assistant, pass: Assistant
+
 	
 
 
@@ -44,4 +59,7 @@ Project to upload  code and bd to Zemoga Test
 			        });
 
 
-
+# Contact Information
+	Name: CARLOS HERNAN DIAZ BROCHERO
+	Phone: 3188278807
+	Email: CARLOSH.86.DIAZ@GMAIL.COM
