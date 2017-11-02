@@ -21,6 +21,7 @@ namespace TransactionsWebApp.Models
         [Display(Name = "Transaction Type")]
         public int transactiontype_id { get; set; }
         [Display(Name = "Amount")]
+        
         public double amount { get; set; }
         [Display(Name = "Client Origin Code")]
         public int clientorg_Id { get; set; }

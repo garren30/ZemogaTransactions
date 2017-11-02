@@ -64,7 +64,7 @@ namespace TransactionsWebApp.Controllers
                 //ViewBag.transactiontype_id = new SelectList(db.Transactiontypes, "Id", "transactiontype");
                 //return View();
                 ObjectParameter Identity = new ObjectParameter("Identity", typeof(String));
-                db.GetTransactionData(form["txtclientorg"], form["txtclientdest"], float.Parse(form["amount"]), Convert.ToInt32(form["transactiontype_id"]), 1, Identity);
+                db.GetTransactionData(form["txtclientorg"], form["txtclientdest"], float.Parse(form["amount"],System.Globalization.CultureInfo.InvariantCulture), Convert.ToInt32(form["transactiontype_id"]), 1, Identity);
                 return RedirectToAction("Details", new { id = Identity.Value });
             }
             catch (Exception exp)
